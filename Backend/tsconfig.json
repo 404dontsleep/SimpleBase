@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES6",
+    "declaration": false,
+    "outDir": "./dist",
+    "strict": true,
+    "paths": {
+      "@MyTypes/*": ["./types/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "types/**/*.d.ts"]
+}

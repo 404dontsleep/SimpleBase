@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  backend:
+    # restart: always
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./Backend:/app
+      # - /app/node_modules
+    depends_on:
+      - db
+
+  db:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - learn_1:/data/db
+
+volumes:
+  learn_1: 
