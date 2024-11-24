@@ -1,0 +1,38 @@
+@base_url = http://localhost:5000/api
+
+### Login
+POST {{base_url}}/auth/login
+Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY3NDJhMGVmY2QyZDQ3YjlkMWVlNzliZSIsImNoZWNrIjp0cnVlfSwiaWF0IjoxNzMyNDIwNzAwLCJleHAiOjE3MzI1MDcxMDB9.ap40W9Q_qddke9KDFQPrYFHibvy3RmUdEBoGbElL5k4
+
+{
+    "email": "test1@zoxo.app",
+    "password": "test"
+}
+
+### Register
+POST  {{base_url}}/auth/register
+Content-Type: application/json
+
+{
+    "email": "test1@zoxo.app",
+    "password": "test"
+}
+
+### Verify
+POST  {{base_url}}/auth/verify
+Content-Type: application/json
+Authorization: Bea eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY3NDJhMGVmY2QyZDQ3YjlkMWVlNzliZSIsImNoZWNrIjpmYWxzZX0sInZlcmlmeSI6eyJjb2RlIjoiYWI0ODllZWYzYzM3YjQzODI5ZmFiNDRiOGVjOTFkNWYzMzZmNGM2YjU4MzQ4MTJkODJkOWE2ZTVlMjg5NmJlNyIsImxhc3RTZW5kVGltZSI6IjIwMjQtMTEtMjRUMDM6NTc6NTEuMjk4WiJ9LCJpYXQiOjE3MzI0MjA2NzEsImV4cCI6MTczMjUwNzA3MX0.AuQ43WFU8KQTS-IXZKcFDbb-KTspQBFd33vtdryuQJE
+
+{
+    "code": "Jl6hqwSMGh"
+}
+
+### Verify-resend
+GET  {{base_url}}/auth/resend
+Content-Type: application/json
+Authorization: Bea eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY3NDJhMGVmY2QyZDQ3YjlkMWVlNzliZSJ9LCJ2ZXJpZnkiOnsiY29kZSI6ImUyNmVlNDIwMDJkNTNjNjczZTA3OWZjMDg0NWY2Y2E5MGI3OTdlMDVhNmI1MjUyNTI3NGJhY2ZmYmNlNGI1OTEiLCJsYXN0U2VuZFRpbWUiOiIyMDI0LTExLTI0VDAzOjQzOjQ1LjcyMloifSwiaWF0IjoxNzMyNDE5ODI1LCJleHAiOjE3MzI1MDYyMjV9.yKwFBZcvAASrHFs3Y2RvH7GKDAi2yYa2oKTN_vWxJMQ
+
+### Me
+GET  {{base_url}}/auth/me
+Authorization: Bea eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY3NDJhMGVmY2QyZDQ3YjlkMWVlNzliZSIsImNoZWNrIjp0cnVlfSwiaWF0IjoxNzMyNDIwNzAwLCJleHAiOjE3MzI1MDcxMDB9.ap40W9Q_qddke9KDFQPrYFHibvy3RmUdEBoGbElL5k4
