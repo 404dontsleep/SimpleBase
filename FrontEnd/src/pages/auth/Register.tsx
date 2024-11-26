@@ -30,7 +30,7 @@ export default function Register() {
         justifyContent: "center",
       }}
     >
-      <Card>
+      <Card style={{ minWidth: 400 }}>
         <Form
           form={form}
           name='horizontal_login'

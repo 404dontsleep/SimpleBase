@@ -21,9 +21,8 @@ export default async function authMiddleware(
           "-password"
         );
         if (!user) throw MyError("EMAIL_NOT_FOUND");
-        if (decode.user.check && !user.verified)
-          throw MyError("EMAIL_NOT_VERIFIED");
-        if (decode.user.check && user.blocked) throw MyError("EMAIL_BLOCKED");
+        if (!user.verified) throw MyError("EMAIL_NOT_VERIFIED");
+        if (user.blocked) throw MyError("EMAIL_BLOCKED");
         (req as IAuthRequest).decode.auth = user;
       }
     }

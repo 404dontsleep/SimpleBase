@@ -4,12 +4,13 @@ import UserType from "@MyTypes/user.type";
 export interface ITokenPayload {
   user?: {
     _id: string;
-    check: boolean;
   };
   auth?: UserType;
   verify?: {
     code: string;
     lastSendTime: Date;
+    _id?: string;
+    expiresTime?: Date;
   };
 }
 function verifyToken(

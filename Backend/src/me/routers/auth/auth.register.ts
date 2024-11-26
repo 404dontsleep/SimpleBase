@@ -33,10 +33,10 @@ export default async function authRegister(
     await sendVerifyEmail(email, code);
     const token = signToken(
       {
-        user: { _id: user._id, check: false },
         verify: {
           code: sha256(code, config.SALT),
           lastSendTime: new Date(),
+          _id: user._id,
         },
       },
       { expiresIn: "5m" }

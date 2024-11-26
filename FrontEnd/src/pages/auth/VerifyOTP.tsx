@@ -3,18 +3,22 @@ import { App, Button, Card, Input } from "antd";
 import { CodeOutlined } from "@ant-design/icons";
 import useAuthStore from "@/stores/Auth.store";
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, useSearchParams } from "react-router";
 export default function VerifyOTP() {
-  const { user, Verify, ResendOTP } = useAuthStore();
+  const { user, Verify, SendOTP: ResendOTP } = useAuthStore();
   const [code, setCode] = useState("");
   const [loading, setLoading] = useState(false);
   const { notification } = App.useApp();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const next = searchParams.get("next");
   const handleVerify = () => {
     Verify(code)
       .then(() => {
         notification.success({ message: "Verify success" });
-        navigate("/login");
+
+        if (next) navigate(next);
+        else navigate("/login");
       })
       .catch((error) => {
         if (error.response.data.message) {
@@ -37,7 +41,7 @@ export default function VerifyOTP() {
   };
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Card>
+      <Card style={{ minWidth: 400 }}>
         <Card.Meta
           title='Verify your email'
           description={`We've sent an OTP to ${user?.email}`}

@@ -10,6 +10,7 @@ const errors = {
   LOGIN_REQUIRED: "Login is required",
   EMAIL_AND_PASSWORD_REQUIRED: "Email and password are required",
   EMAIL_OR_PASSWORD_INVALID: "Invalid email or password",
+  UNKNOW_ACTION: "Unknow action",
 
   REQUEST_RATE_LIMIT_EXCEEDED: "Request rate limit exceeded",
   PERMISSION_DENIED: "Permission denied",

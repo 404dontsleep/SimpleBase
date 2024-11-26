@@ -9,7 +9,8 @@ interface IAuthStore {
   Register: (email: string, password: string) => Promise<void>;
   GetUser: () => Promise<void>;
   Verify: (code: string) => Promise<void>;
-  ResendOTP: () => Promise<void>;
+  SendOTP: (email?: string) => Promise<void>;
+  ResetPassword: (code: string, password: string) => Promise<void>;
 }
 
 const useAuthStore = create<IAuthStore>((set, get) => ({
@@ -40,8 +41,11 @@ const useAuthStore = create<IAuthStore>((set, get) => ({
     await AxiosInstance.post("/auth/verify", { code });
     await get().GetUser();
   },
-  ResendOTP: async () => {
-    await AxiosInstance.get("/auth/resend");
+  SendOTP: async (email?: string) => {
+    await AxiosInstance.post("/auth/sendotp", { email });
+  },
+  ResetPassword: async (code: string, password: string) => {
+    await AxiosInstance.post("/auth/reset", { code, password });
   },
 }));
 
