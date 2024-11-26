@@ -17,8 +17,15 @@ export default async function authLogin(
 
     const user = await UserModel.findOne({ email, password: sha256(password) });
     if (!user) throw MyError("EMAIL_OR_PASSWORD_INVALID");
-
-    const payload = { user: { _id: user._id } };
+    const payload = {
+      user: { _id: user._id, check: user.verified },
+      verify: user.verified
+        ? undefined
+        : {
+            code: 1,
+            lastSendTime: 0,
+          },
+    };
     const token = sign(payload, config.JWT_SECRET, {
       expiresIn: config.JWT_EXPIRES_IN,
     });

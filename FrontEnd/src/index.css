@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+}
+#root {
+  display: flex;
+  background-image: url("https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*iM6CQ496P3oAAAAAAAAAAAAADrJ8AQ/fmt.webp");
+}
+#root,
+body,
+html {
+  height: 100%;
+  width: 100%;
+}
