@@ -11,6 +11,7 @@ createRoot(document.getElementById("root")!).render(
       style={{
         display: "flex",
         flex: 1,
+        maxWidth: "100vw",
       }}
     >
       <BrowserRouter>

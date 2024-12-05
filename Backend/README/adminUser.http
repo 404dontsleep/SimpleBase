@@ -1,0 +1,50 @@
+@base_url = http://localhost:5000/api
+@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY3NDU0MzBlZTFlN2Y0Zjk5ZjFjZDM1MyJ9LCJpYXQiOjE3MzI3MTI1OTgsImV4cCI6MTczMjc5ODk5OH0.exXQIdjIgwne8puWtZlrowRFtJtc2HezFgJ2nCvlF0g
+
+
+### findOne
+POST {{base_url}}/admin/user/findOne
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "_id" : "6742a0efcd2d47b9d1ee79be"
+}
+
+### findAll
+POST {{base_url}}/admin/user/findAll
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "email": "",
+    "verified": true,
+    "blocked": false,
+    "page": 1,
+    "limit": 10
+}
+
+### update
+POST {{base_url}}/admin/user/update
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "_id": "6742585f8216803e45242806",
+    "permission": [
+      "674295d0776ff1c32c1697fd"
+    ],
+    "verified": true,
+    "blocked": false,
+}
+
+### create
+POST {{base_url}}/admin/user/create
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "email": "test@test.test",
+    "password": "1"
+}
+

@@ -1,0 +1,37 @@
+@base_url = http://localhost:5000/api/admin/permission
+@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY3NDU0MzBlZTFlN2Y0Zjk5ZjFjZDM1MyJ9LCJpYXQiOjE3MzI3MTI1OTgsImV4cCI6MTczMjc5ODk5OH0.exXQIdjIgwne8puWtZlrowRFtJtc2HezFgJ2nCvlF0g
+
+
+### findAll
+POST {{base_url}}/findAll
+Authorization: {{token}}
+Content-Type: application/json
+
+### create
+POST {{base_url}}/create
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "name" : "Add"
+}
+
+### delete
+POST {{base_url}}/delete
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "_id" : "674743133f307e2e19f7be12"
+}
+
+### update
+POST {{base_url}}/update
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "_id" : "6747438f8f4b82865d335c50",
+    "name": "Vai",
+    "children" : ["674295d0776ff1c32c169806"]
+}

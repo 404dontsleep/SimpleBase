@@ -6,5 +6,7 @@ export default function catchResponse(
   next: NextFunction
 ) {
   console.error(err);
-  res.status(500).json({ message: err.message, error: err.stack });
+  if (err.name === "TokenExpiredError")
+    res.status(401).json({ message: err.message });
+  else res.status(500).json({ message: err.message, error: err.stack });
 }

@@ -14,6 +14,9 @@ const errors = {
 
   REQUEST_RATE_LIMIT_EXCEEDED: "Request rate limit exceeded",
   PERMISSION_DENIED: "Permission denied",
+
+  PERMISSION_NOT_FOUND: "Permission not found",
+  UNAUTHORIZED: "Unauthorized",
 };
 
 export default function MyError(message: keyof typeof errors) {
